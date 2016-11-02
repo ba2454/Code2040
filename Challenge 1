@@ -1,0 +1,4 @@
+import requests
+json = {'token': token, 'github': github} 
+r = requests.post('url', json)
+print(r.text)
