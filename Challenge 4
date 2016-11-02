@@ -1,0 +1,16 @@
+import json
+import requests
+
+query = {'token': "f0910550dc180a6c059c681d355c4379"} 
+r = requests.post('http://challenge.code2040.org/api/prefix', query)
+dict = json.lods(r.text)
+
+a = dict["array"]   
+p = dict["prefix"]
+for word in a[:]:
+    if word.startswith(p):
+        a.remove(word)
+
+query = {'token': "f0910550dc180a6c059c681d355c4379", 'array': a }
+r = requests.post('http://challenge.code2040.org/api/prefix/validate', json = query)
+print(r.text)
