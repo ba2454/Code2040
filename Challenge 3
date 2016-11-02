@@ -1,0 +1,12 @@
+import requests
+json = {'token': "f0910550dc180a6c059c681d355c4379"} 
+r = requests.post('http://challenge.code2040.org/api/haystack', json)
+dict = r.json()
+
+needle = dict["needle"]   
+haystack = dict["haystack"] 
+
+n = haystack.index(needle)
+
+json = {'token': "f0910550dc180a6c059c681d355c4379", 'needle':n }
+r = requests.post('http://challenge.code2040.org/api/haystack/validate', json)
