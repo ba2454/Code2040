@@ -1,0 +1,11 @@
+import requests
+json = {'token': "f0910550dc180a6c059c681d355c4379"} 
+r = requests.post('http://challenge.code2040.org/api/reverse', json)
+
+string = r.text
+new = string[::-1]
+
+
+json = {'token': "f0910550dc180a6c059c681d355c4379", 'string': new }
+r = requests.post('http://challenge.code2040.org/api/reverse/validate', json)
+print(r.text)
